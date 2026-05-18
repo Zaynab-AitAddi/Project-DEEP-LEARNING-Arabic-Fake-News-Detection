@@ -1,0 +1,43 @@
+# Configuration entraînement — arabe standard (MSA) & proche des dialectes maghrébins pour transcription
+
+language: arabic
+
+# Corpus: soit Hugging Face, soit fichier local (priorité si le fichier existe)
+dataset:
+  hub_id: "Nahla-yasmine/arabic_fake_news"
+  local_path: null # ex. "data/raw/arabic_curated.csv" — voir configs/train_arabic_curated.yaml
+  split: "train"
+  text_mode: "title_plus_text" # concatène titre + corps
+  cache_dir: null
+
+# Limite d'exemples pour prototyper sur CPU/GPU modeste (null = tout le corpus)
+max_samples: 60000
+val_ratio: 0.1
+test_ratio: 0.1
+seed: 42
+
+model:
+  pretrained: "aubmindlab/bert-base-arabertv2"
+  max_length: 256
+
+training:
+  output_dir: "checkpoints/arabic"
+  num_train_epochs: 3
+  per_device_train_batch_size: 16
+  per_device_eval_batch_size: 32
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.06
+  logging_steps: 50
+  eval_strategy: "epoch"
+  eval_steps: 500
+  save_strategy: "epoch"
+  save_steps: 500
+  save_total_limit: 2
+  load_best_model_at_end: true
+  metric_for_best_model: "f1"
+  greater_is_better: true
+  fp16: false # passez à true sur GPU NVIDIA récent si stable
+
+data_paths:
+  processed_dir: "data/processed"

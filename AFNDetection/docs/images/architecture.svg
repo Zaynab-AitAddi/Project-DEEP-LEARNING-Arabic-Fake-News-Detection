@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" role="img" aria-labelledby="title desc">
+  <title id="title">AFNDetection architecture</title>
+  <desc id="desc">Data sources feed training; checkpoint powers Streamlit inference for Arabic fake news detection.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="480" rx="16" fill="url(#bg)"/>
+  <text x="460" y="38" text-anchor="middle" fill="#e2e8f0" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="700">AFNDetection - system flow</text>
+  <text x="460" y="62" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="13">Arabic fake vs real | AraBERT | Hugging Face | Streamlit</text>
+
+  <rect x="48" y="110" width="200" height="260" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="148" y="142" text-anchor="middle" fill="#a5b4fc" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600">Data</text>
+  <rect x="68" y="165" width="160" height="72" rx="10" fill="#334155" stroke="#818cf8" stroke-width="1"/>
+  <text x="148" y="195" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, sans-serif" font-size="12">HF Dataset</text>
+  <text x="148" y="215" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">arabic_fake_news</text>
+  <rect x="68" y="255" width="160" height="72" rx="10" fill="#334155" stroke="#818cf8" stroke-width="1"/>
+  <text x="148" y="285" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, sans-serif" font-size="12">Optional CSV</text>
+  <text x="148" y="305" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">materialize + train</text>
+
+  <rect x="292" y="110" width="220" height="260" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="402" y="142" text-anchor="middle" fill="#67e8f9" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600">Train</text>
+  <rect x="312" y="165" width="180" height="88" rx="10" fill="#334155" stroke="#22d3ee" stroke-width="1"/>
+  <text x="402" y="198" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, sans-serif" font-size="12">train.py + YAML</text>
+  <text x="402" y="220" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">Hugging Face Trainer</text>
+  <rect x="312" y="268" width="180" height="84" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="402" y="302" text-anchor="middle" fill="#ddd6fe" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">AraBERT</text>
+  <text x="402" y="324" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="11">bert-base-arabertv2</text>
+
+  <rect x="556" y="178" width="140" height="124" rx="12" fill="#312e81" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="626" y="212" text-anchor="middle" fill="#c4b5fd" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600">Checkpoint</text>
+  <text x="626" y="238" text-anchor="middle" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">config.json</text>
+  <text x="626" y="256" text-anchor="middle" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">weights + tokenizer</text>
+  <text x="626" y="280" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="10">label_schema.json</text>
+
+  <rect x="738" y="110" width="150" height="260" rx="14" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+  <text x="813" y="142" text-anchor="middle" fill="#fb7185" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600">Browser</text>
+  <rect x="758" y="168" width="110" height="182" rx="10" fill="#0f172a" stroke="#f43f5e" stroke-width="1"/>
+  <text x="813" y="198" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">Streamlit</text>
+  <text x="813" y="220" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="10">RTL Arabic UI</text>
+  <text x="813" y="248" text-anchor="middle" fill="#86efac" font-family="Segoe UI, sans-serif" font-size="10">fake / real + probs</text>
+  <text x="813" y="268" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="10">inference</text>
+
+  <path d="M 256 220 L 284 220" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#m)"/>
+  <path d="M 516 240 L 552 240" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#m)"/>
+  <path d="M 700 240 L 732 240" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#m)"/>
+  <text x="266" y="208" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="10">prepare</text>
+  <text x="545" y="228" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="10">save</text>
+  <text x="712" y="228" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="10">load</text>
+
+  <text x="460" y="420" text-anchor="middle" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="11">Colab optional for GPU | checkpoints are standard Hugging Face model folders</text>
+</svg>
