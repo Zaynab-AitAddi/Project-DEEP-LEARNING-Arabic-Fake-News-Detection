@@ -86,7 +86,7 @@ AFNDetection/
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/AFNDetection.git
+git clone https://github.com/Zaynab-AitAddi/Project-DEEP-LEARNING-Arabic-Fake-News-Detection.git
 cd AFNDetection
 
 # Install dependencies
