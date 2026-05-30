@@ -1,2 +1,0 @@
-# Directory with config.json + model weights (see training: checkpoints/arabic)
-arabic_checkpoint: "checkpoints/arabic"
